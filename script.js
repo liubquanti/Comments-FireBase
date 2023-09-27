@@ -36,6 +36,17 @@ database.on("child_added", function(snapshot) {
     var commentsDiv = document.getElementById("comments");
 
     var commentElement = document.createElement("div");
+    commentElement.id = snapshot.key;  // Додаємо ідентифікатор для кожного коментаря
     commentElement.innerHTML = "<strong>" + comment.name + ":</strong> " + comment.comment;
     commentsDiv.appendChild(commentElement);
 });
+
+// Видалення коментаря
+function deleteComment(commentId) {
+    var commentElement = document.getElementById(commentId);
+
+    if (commentElement) {
+        commentElement.remove();
+        database.child(commentId).remove();
+    }
+}
