@@ -8,6 +8,7 @@ body {
 
 #comments {
     margin-bottom: 70px; /* Додано відстань для блоку коментарів внизу */
+    width: 600px;
 }
 
 #inputSection {
